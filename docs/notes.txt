@@ -1,0 +1,487 @@
+wifi ctf Defcon 22
+
+
+CH  7 ][ Elapsed: 44 s ][ 2014-08-07 17:12                                         
+                                                                                                                                     
+ BSSID              PWR  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID
+                                                                                                                                     
+ 00:11:74:D1:19:C2  -19        2        0    0   6  54e. WPA2 CCMP   PSK  DCWCTF07                                                                                              
+ 00:11:74:D1:19:C1  -20       23        0    0   6  54e. WPA2 CCMP   PSK  DCWCTF03                                                                                          
+ 00:11:74:D1:19:C0  -34       33        0    0   6  54e. WEP  WEP         DCWCTF14 
+ F8:7B:8C:17:B8:4B  -48      228       25    0  11  54e  WEP  WEP    OPN  DCWCTF01                                                                                                                                                                  
+ 00:11:74:A6:F2:01  -44        6        0    0   6  54e. WPA2 CCMP   PSK  DCWCTF03                                                   
+ 00:11:74:D1:19:E0  -35       31        0    0   6  54e. WEP  WEP         DCWCTF11 
+ 00:11:74:D1:19:C3  -19      491        0    0   6  54e. WPA2 CCMP   PSK  DCWCTF16   
+ 00:11:74:A6:F6:30  -38       13        0    0  13  54e. WEP  WEP         DCWCTF10
+
+00:11:74:A6:F2:00  -27       10        0    0   1  54e. WEP  WEP         DCWCTF04
+                                                
+At beginning 
+bring up mon0
+attach wireshark and dump clean pcap before anyone attacks.
+                       
+challenge 1. WEP Open authentication
+ifconfig wlan0 up
+iwlist wlan0 scan
+iwconfig wlan0 essid DCWCTF01 
+
+challenge 2. -- may be hidden network
+not seeing it in airodump
+Kismet?
+wireshark to mon0
+wireshark filter = wlan_mgt.ssid
+looking for DCWCTF02
+in airodump look for <length:0>
+
+challenge 3
+basic deauth the client
+see my cheatsheet
+
+challenge 4
+target is client looking for server
+set up hostapd
+
+challenge 5
+cat pcap | strings | uniq
+
+challenge 6
+wiredump mon0 and look for DCWCTF06
+wireshark filter = wlan_mgt.ssid
+
+challenge 7 ccmp
+wiredump mon0 and look for DCWCTF06
+wireshark filter = wlan_mgt.ssid
+
+challenge 8
+high and low 2.4ghz and 5ghz
+Wireshark filter = wlan_mgt.ssid and "eth.addr eq xx:xx:xx:xx:xx:xx"
+
+challenge 9 
+ping pong
+examine in wirehsark
+
+
+challenge 10
+deauth flood?
+
+
+challenge 11
+speed challenge
+
+chellenge 12
+like getting coffee and hacking shit
+check for clients
+handshake crack big text file
+
+challenge 13
+???
+
+challenge 14  Jim
+This is a nice break -- low hanging fruit
+its a gimme
+hold the flag
+fern-wifi?
+
+challenge 15
+you have to be a mac or have mac address?
+
+challenge 16
+speed challenge
+
+
+challenge17  Jim
+use pyrit on this one
+cracking wpa2 ccmp psk
+see 
+
+challenge 18
+sdr starts
+rtl_power -f 80:200:2k -i 10 logfile.csv
+captured wav file on frequency 80.966
+gqrx-20140808-183623.wav
+morse code
+
+challenge 19
+found frequency on 54.005
+
+
+challenge 26
+
+challenge 20
+found frequency at 217.842 transmitting morse
+recorded to file gqrx-20140808-203304.wav
+
+challenge 21
+found frequency at 144.000 transmitting computer voice reciting letters and numbers
+found frequency at 146.017 transmitting intermittently reciting letters and numbers
+
+challenge 22
+frequency found at 929.582000
+intermittent transmission
+
+challenge 23
+5.9=8Ghz above my rtlsdr range
+
+
+challenge 24
+found frequency at 940.189
+
+challenge 25
+found frequency at 76.023 computer voice reciting letters and numbers
+
+challenge 28
+actress name: Hedy Lamarr
+Lamarr was also notable as co-inventor, 
+with composer George Antheil, of an early 
+technique for spread spectrum communications 
+and frequency hopping,[6] which paved the way 
+for today's wireleyour keyisthe_systemss communications[7][8] and which, 
+upon its invention in 1941, was deemed so vital to 
+national defense that government officials would not 
+allow publication of its details.[9] At the Electronic 
+Frontier Foundation's Sixth Pioneer Awards in 1997, 
+she and George Antheil were honoured with special 
+awards for their "trail-blazing development of a technology 
+that has become a key component of wireless data systems."[6]
+bluetooth
+
+challenge 29
+this is in the form of a question and is a picture.
+"May I have a picture?"
+
+challenge 30
+wireshark mon0
+
+
+your keyisthe_system -- offensive flag
+shiznitz2 xx
+dawgpound xx
+prettysweet xx
+zeropdfs xx 
+barnacle xx
+Blahnet5 
+takju
+BrownSpruce xx
+shangrila
+shangrila
+bluetooth  xx
+spread spectrum xx
+Monsoon xx
+Agnew xx
+Douglass xx
+HOWARD3
+lightning
+zerocontrast
+NobodySpecial
+
+
+00:11:74:A6:F2:01
+
+113A354A156b0A235C53B210B183F357F460I91C252A356H348D180KB43M353J128B27F189
+367A237A271A195C328B155E240B232B412D351C363
+
+flag
+
+
+00:11:74:D1:19:E1  -69       59        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03
+
+
+
+ 00:11:74:A6:F6:30  -41        2        0    0  13  54e. WEP  WEP         DCWCTF10              
+ 00:11:74:A6:F6:30  -44        4        0    0  13  54e. WEP  WEP         DCWCTF10              
+ 00:11:74:A6:F6:30  -44        5        0    0  13  54e. WEP  WEP         DCWCTF10              
+ 00:11:74:A6:F6:30  -45        6        0    0  13  54e. WEP  WEP         DCWCTF10              
+ 00:11:74:A6:F6:30  -46        3        0    0  13  54e. WEP  WEP         DCWCTF10              
+ 00:11:74:A6:F6:30  -46        7        0    0  13  54e. WEP  WEP         DCWCTF10              
+ 00:11:74:D1:19:4B  -62        4        0    0  11  54e  WEP  WEP         DCWCTF01              
+ 00:11:74:D1:19:4B  -62        7        0    0  11  54e  WEP  WEP         DCWCTF01              
+ 00:11:74:D1:19:4B  -63        5        0    0  11  54e  WEP  WEP         DCWCTF01              
+ 00:11:74:D1:19:4B  -64        6        0    0  11  54e  WEP  WEP         DCWCTF01              
+ 00:11:74:D1:19:4B  -64        8        0    0  11  54e  WEP  WEP         DCWCTF01              
+ 00:11:74:D1:19:4B  -68        4        0    0  11  54e  WEP  WEP         DCWCTF01              
+ 00:11:74:D1:19:4B  -72        3        0    0  11  54e  WEP  WEP         DCWCTF01              
+ 00:11:74:D1:19:4B  -75        2        0    0  11  54e  WEP  WEP         DCWCTF01              
+ 00:11:74:D1:19:B9  -40       14        0    0   1  54   WPA2 CCMP   PSK  DCWCTF05 
+
+             
+ 00:11:74:D1:19:B9  -40       15        0    0   1  54   WPA2 CCMP   PSK  DCWCTF06              
+ 00:11:74:D1:19:B9  -41       13        0    0   1  54   WPA2 CCMP   PSK  DCWCTF18              
+ 00:11:74:D1:19:B9  -42       16        0    0   1  54   WPA2 CCMP   PSK  DCWCTF10              
+ 00:11:74:D1:19:B9  -42       17        0    0   1  54   WPA2 CCMP   PSK  DCWCTF12              
+ 00:11:74:D1:19:B9  -43       12        0    0   1  54   WPA2 CCMP   PSK  DCWCTF17              
+ 00:11:74:D1:19:B9  -44       19        0    0   1  54   WPA2 CCMP   PSK  DCWCTF14              
+ 00:11:74:D1:19:B9  -45       11        0    0   1  54   WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:B9  -45       20        0    0   1  54   WPA2 CCMP   PSK  DCWCTF01              
+ 00:11:74:D1:19:B9  -46       21        0    0   1  54   WPA2 CCMP   PSK  DCWCTF05              
+ 00:11:74:D1:19:B9  -47       10        0    0   1  54   WPA2 CCMP   PSK  DCWCTF10              
+ 00:11:74:D1:19:B9  -47       22        0    0   1  54   WPA2 CCMP   PSK  DCWCTF08              
+ 00:11:74:D1:19:B9  -47       23        0    0   1  54   WPA2 CCMP   PSK  DCWCTF09              
+ 00:11:74:D1:19:B9  -48       24        0    0   1  54   WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:B9  -48       25        0    0   1  54   WPA2 CCMP   PSK  DCWCTF17              
+ 00:11:74:D1:19:C0  -40       15        0    0   1  54e. WEP  WEP         DCWCTF14              
+ 00:11:74:D1:19:C0  -40       25        0    0   1  54e. WEP  WEP         DCWCTF14              
+ 00:11:74:D1:19:C0  -40       26        0    0   1  54e. WEP  WEP         DCWCTF14              
+ 00:11:74:D1:19:C0  -41       11        0    0   1  54e. WEP  WEP         DCWCTF14              
+ 00:11:74:D1:19:C0  -41       14        0    0   1  54e. WEP  WEP         DCWCTF14              
+ 00:11:74:D1:19:C0  -41       16        0    0   1  54e. WEP  WEP         DCWCTF14              
+ 00:11:74:D1:19:C0  -41       17        0    0   1  54e. WEP  WEP         DCWCTF14              
+ 00:11:74:D1:19:C0  -41       18        0    0   1  54e. WEP  WEP         DCWCTF14              
+ 00:11:74:D1:19:C0  -41       24        0    0   1  54e. WEP  WEP         DCWCTF14              
+ 00:11:74:D1:19:C0  -41        7        0    0   1  54e. WEP  WEP         DCWCTF14              
+ 00:11:74:D1:19:C0  -41        8        0    0   1  54e. WEP  WEP         DCWCTF14              
+ 00:11:74:D1:19:C0  -42       10        0    0   1  54e. WEP  WEP         DCWCTF14              
+ 00:11:74:D1:19:C0  -42       12        0    0   1  54e. WEP  WEP         DCWCTF14              
+ 00:11:74:D1:19:C0  -42       13        0    0   1  54e. WEP  WEP         DCWCTF14              
+ 00:11:74:D1:19:C0  -42       19        0    0   1  54e. WEP  WEP         DCWCTF14              
+ 00:11:74:D1:19:C0  -42       20        0    0   1  54e. WEP  WEP         DCWCTF14              
+ 00:11:74:D1:19:C0  -42        9        0    0   1  54e. WEP  WEP         DCWCTF14              
+ 00:11:74:D1:19:C0  -43       20        0    0   1  54e. WEP  WEP         DCWCTF14              
+ 00:11:74:D1:19:C0  -43       23        0    0   1  54e. WEP  WEP         DCWCTF14              
+ 00:11:74:D1:19:C0  -43       26        0    0   1  54e. WEP  WEP         DCWCTF14              
+ 00:11:74:D1:19:C0  -44       22        0    0   1  54e. WEP  WEP         DCWCTF14              
+ 00:11:74:D1:19:C0  -45       21        0    0   1  54e. WEP  WEP         DCWCTF14              
+ 00:11:74:D1:19:C0  -46       27        0    0   1  54e. WEP  WEP         DCWCTF14              
+ 00:11:74:D1:19:C1  -38       21        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:C1  -38       22        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:C1  -40       23        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:C1  -41       13        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:C1  -41       14        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:C1  -41       15        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:C1  -41       16        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:C1  -41       17        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:C1  -41       20        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:C1  -42       10        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:C1  -42       12        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:C1  -42       19        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:C1  -42        9        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:C1  -43       11        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:C1  -43       18        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:C1  -43       23        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:C1  -43        6        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:C1  -44       19        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:C1  -44        7        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:C1  -44        8        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:C1  -44        9        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:C1  -45        9        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:C2  -38       26        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:C2  -39       26        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:C2  -40       17        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:C2  -40       24        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:C2  -40       25        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:C2  -40       26        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:C2  -40        8        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:C2  -40        9        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:C2  -41       10        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:C2  -41       11        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:C2  -41       17        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:C2  -41       23        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:C2  -41       26        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:C2  -42       10        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:C2  -42       13        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:C2  -42       14        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:C2  -42       16        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:C2  -42       18        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:C2  -42       19        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:C2  -42       21        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:C2  -43       12        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:C2  -43       15        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:C2  -43       20        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:C2  -43        2        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:C2  -44       22        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:C3  -39       15        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:C3  -39       25        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:C3  -39       26        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:C3  -40       16        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:C3  -40       21        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:C3  -40       24        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:C3  -41        1        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:C3  -41       12        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:C3  -41       15        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:C3  -41       18        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:C3  -41       19        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:C3  -41       20        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:C3  -42       11        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:C3  -42       13        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:C3  -42       14        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:C3  -42       17        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:C3  -42        2        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:C3  -43       10        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:C3  -43       17        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:C3  -43       18        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:C3  -43       22        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:C3  -43       23        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:C3  -43        9        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:C3  -44       24        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:C4  -37       26        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:C4  -38       25        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:C4  -38       27        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:C4  -40       21        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:C4  -40       22        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:C4  -40       27        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:C4  -41        1        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:C4  -41       15        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:C4  -41       16        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:C4  -41       17        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:C4  -42       13        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:C4  -42       14        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:C4  -42       19        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:C4  -42       20        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:C4  -42        2        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:C4  -42       24        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:C4  -42       27        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:C4  -43       13        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:C4  -44       18        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:C4  -44       23        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:C4  -44        9        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:C4  -45       10        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:C4  -46       11        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:C4  -46       12        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:C5  -39       33        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -40       21        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -41       20        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -41       21        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -41       22        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -41       23        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -41       26        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -42        1        0    0   1  54e. OPN              DCWCTF09 
+
+iwlist wlan0 scan
+iwconfig wlan0 essid DCWCTF01 
+             
+ 00:11:74:D1:19:C5  -42       14        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -42        2        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -42       24        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -42       25        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -42       32        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -42       33        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -43       10        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -43       12        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -43       20        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -43       27        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -43       31        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -43        9        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -44       11        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -44       13        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -44       19        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -45       15        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -45       30        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -46       16        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -46       18        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -47       17        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -47       28        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:C5  -47       29        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:E0  -40        2        0    0   1  54e. WEP  WEP         DCWCTF11              
+ 00:11:74:D1:19:E0  -41       13        0    0   1  54e. WEP  WEP         DCWCTF11              
+ 00:11:74:D1:19:E0  -41       14        0    0   1  54e. WEP  WEP         DCWCTF11              
+ 00:11:74:D1:19:E0  -42       12        0    0   1  54e. WEP  WEP         DCWCTF11              
+ 00:11:74:D1:19:E0  -43       11        0    0   1  54e. WEP  WEP         DCWCTF11              
+ 00:11:74:D1:19:E0  -43       15        0    0   1  54e. WEP  WEP         DCWCTF11              
+ 00:11:74:D1:19:E0  -43       17        0    0   1  54e. WEP  WEP         DCWCTF11              
+ 00:11:74:D1:19:E0  -43       18        0    0   1  54e. WEP  WEP         DCWCTF11              
+ 00:11:74:D1:19:E0  -43       19        0    0   1  54e. WEP  WEP         DCWCTF11              
+ 00:11:74:D1:19:E0  -44       16        0    0   1  54e. WEP  WEP         DCWCTF11              
+ 00:11:74:D1:19:E0  -48       20        0    0   1  54e. WEP  WEP         DCWCTF11              
+ 00:11:74:D1:19:E0  -51       22        0    0   1  54e. WEP  WEP         DCWCTF11              
+ 00:11:74:D1:19:E0  -52       21        0    0   1  54e. WEP  WEP         DCWCTF11              
+ 00:11:74:D1:19:E1  -41      143        0    0   1  54e  WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:E1  -44      189        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:E1  -45      188        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:E1  -48        6        0    0   1  54e  WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:E1  -50       16        0    0   1  54e  WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:E1  -50      165        0    0   1  54e  WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:E1  -50      173        0    0   1  54e  WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:E1  -50       19        0    0   1  54e  WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:E1  -51      188        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:E1  -53      171        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:E1  -54      157        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:E1  -54      180        0    0   1  54e  WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:E1  -55      156        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:E1  -56      149        0    0   1  54e  WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:E1  -56      170        0    0   1  54e  WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:E1  -57      157        0    0   1  54e  WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:E1  -58      158        0    0   1  54e  WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:E1  -60      155        0    0   1  54e  WPA2 CCMP   PSK  DCWCTF03              
+ 00:11:74:D1:19:E2  -42        1        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:E2  -42       18        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:E2  -42        2        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:E2  -43       31        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:E2  -44       30        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:E2  -44       31        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:E2  -45       32        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:E2  -46       18        0    0  11  54e  WPA2 CCMP   PSK  DCWCTF11              
+ 00:11:74:D1:19:E2  -46       29        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:E2  -46       68        0    0  11  54e  WPA2 CCMP   PSK  DCWCTF11              
+ 00:11:74:D1:19:E2  -47       24        0    0  11  54e  WPA2 CCMP   PSK  DCWCTF11              
+ 00:11:74:D1:19:E2  -47       25        0    0  11  54e  WPA2 CCMP   PSK  DCWCTF11              
+ 00:11:74:D1:19:E2  -47       26        0    0  11  54e  WPA2 CCMP   PSK  DCWCTF11              
+ 00:11:74:D1:19:E2  -47       27        0    0  11  54e  WPA2 CCMP   PSK  DCWCTF11              
+ 00:11:74:D1:19:E2  -47       28        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF13              
+ 00:11:74:D1:19:E2  -48       69        0    0  11  54e  WPA2 CCMP   PSK  DCWCTF11              
+ 00:11:74:D1:19:E2  -50       20        0    0  11  54e  WPA2 CCMP   PSK  DCWCTF11              
+ 00:11:74:D1:19:E2  -51       23        0    0  11  54e  WPA2 CCMP   PSK  DCWCTF11              
+ 00:11:74:D1:19:E2  -51       33        0    0  11  54e  WPA2 CCMP   PSK  DCWCTF11              
+ 00:11:74:D1:19:E2  -52       21        0    0  11  54e  WPA2 CCMP   PSK  DCWCTF11              
+ 00:11:74:D1:19:E2  -52       34        0    0  11  54e  WPA2 CCMP   PSK  DCWCTF11              
+ 00:11:74:D1:19:E2  -53       22        0    0  11  54e  WPA2 CCMP   PSK  DCWCTF11              
+ 00:11:74:D1:19:E3  -39       27        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:E3  -39       28        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:E3  -40       26        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07 not in dictioary             
+ 00:11:74:D1:19:E3  -40       31        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:E3  -41       15        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:E3  -41       16        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:E3  -41       24        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:E3  -41       25        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:E3  -41       29        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:E3  -41       30        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:E3  -42       15        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:E3  -42       16        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:E3  -42        2        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:E3  -43        1        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:E3  -43       13        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:E3  -43       14        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:E3  -43       19        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:E3  -44       12        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:E3  -44       17        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:E3  -44       18        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:E3  -44       20        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:E3  -44       21        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:E3  -44       22        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:E3  -44       23        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:E3  -45       31        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:E4  -39        2        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:E4  -41       15        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:E4  -41       26        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:E4  -42       11        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:E4  -42       14        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:E4  -42       15        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:E4  -43       12        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:E4  -43       13        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:E4  -48       16        0    0   1  54e. WPA2 CCMP   PSK  DCWCTF16              
+ 00:11:74:D1:19:E5  -41       11        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:E5  -41       12        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:E5  -41       13        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:E5  -41        2        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:E5  -42       14        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:E5  -42       16        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:E5  -42       31        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:E5  -43       15        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:E5  -45       21        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:E5  -46       20        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:E5  -47       17        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:E5  -47       22        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:E5  -48       18        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:E5  -48       19        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:E5  -48       22        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:E5  -49       23        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:E5  -54       23        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:E5  -54       24        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:E5  -54       25        0    0   1  54e. OPN              DCWCTF09              
+ 00:11:74:D1:19:F0  -59       11        0    0   7  54e  WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:F0  -62        3        0    0   7  54e  WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:F0  -62        7        0    0   7  54e  WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:F0  -62        8        0    0   7  54e  WPA2 CCMP   PSK  DCWCTF07              
+ 00:11:74:D1:19:F0  -63        5        0    0   7  54e  WPA2 CCMP   PSK  DCWCTF07              
+pentoo tmp # 
+
+
+

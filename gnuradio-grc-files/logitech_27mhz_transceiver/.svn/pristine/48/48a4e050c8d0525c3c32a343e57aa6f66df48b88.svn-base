@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<block>
+  <name>Key Source GUI</name>
+  <key>logitech_27mhz_transceiver_key_src_gui</key>
+  <category>logitech_27mhz_transceiver</category>
+  <import>from grc_gnuradio import blks2 as grc_blks2</import>
+  <make>grc_blks2.lkey_src_gui_run()</make>
+
+</block>

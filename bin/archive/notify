@@ -1,0 +1,1 @@
+xuser=$(who | grep ":0" | awk '{print $1}' | tail -n1) su "$xuser" -c 'DISPLAY=:0 notify-send hi'

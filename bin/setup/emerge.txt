@@ -1,0 +1,3 @@
+#!/bin/bash
+emerge audacity
+emerge qsstv

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+airmon-zc start wlan1 1
+airmon-zc start wlan2 6
+airmon-zc start wlan3 11
+
+nohup /usr/sbin/tcpdump -i wlan1mon -s 0 -w /ctf/p/channel1-full-`date +%m-%d-%s`.pcap &
+nohup /usr/sbin/tcpdump -i wlan2mon -s 0 -w /ctf/p/channel6-full-`date +%m-%d-%s`.pcap &
+nohup /usr/sbin/tcpdump -i wlan3mon -s 0 -w /ctf/p/channel11-full-`date +%m-%d-%s`.pcap &

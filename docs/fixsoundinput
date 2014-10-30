@@ -1,0 +1,3 @@
+choose correct sound card in alsamixer
+then save settings in seperate terminal with command:
+alsactl store

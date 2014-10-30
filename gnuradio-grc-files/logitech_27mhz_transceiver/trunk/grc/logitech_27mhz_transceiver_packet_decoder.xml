@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<block>
+  <name>Logitech 27 MHz Packet Decoder</name>
+  <key>logitech_27mhz_transceiver_packet_decoder</key>
+  <category>logitech_27mhz_transceiver</category>
+  <import>from logitech_27mhz_transceiver import logitech_27mhz_transceiver_packet as logitech_pkt</import>
+
+	<make>logitech_pkt.packet_demod_$(type.fcn)(logitech_pkt.packet_decoder(
+		access_code=$access_code,
+		threshold=0,
+		verbose=$verbose,
+		callback=lambda ok, payload: self.$(id).recv_pkt(ok, payload),
+	),
+)</make>
+	<param>
+		<name>Output Type</name>
+		<key>type</key>
+		<value>float</value>
+		<type>enum</type>
+		<option>
+			<name>Float</name>
+			<key>float</key>
+			<opt>fcn:f</opt>
+		</option>
+		<option>
+			<name>Complex</name>
+			<key>complex</key>
+			<opt>fcn:c</opt>
+		</option>
+		<option>
+			<name>Int</name>
+			<key>int</key>
+			<opt>fcn:i</opt>
+		</option>
+		<option>
+			<name>Short</name>
+			<key>short</key>
+			<opt>fcn:s</opt>
+		</option>
+		<option>
+			<name>Byte</name>
+			<key>byte</key>
+			<opt>fcn:b</opt>
+		</option>
+	</param>
+	<param>
+		<name>Access Code</name>
+		<key>access_code</key>
+		<value>11001100110011000000</value>
+		<type>string</type>
+	</param>
+	<param>
+		<name>Verbose mode</name>
+		<key>verbose</key>
+		<value>0</value>
+		<type>enum</type>
+		<option>
+			<name>On</name>
+			<key>1</key>
+		</option>
+		<option>
+			<name>Off</name>
+			<key>0</key>
+		</option>
+	</param>
+	<sink>
+		<name>in</name>
+		<type>byte</type>
+	</sink>
+	<source>
+		<name>out</name>
+		<type>$type</type>
+	</source>
+
+</block>

@@ -1,0 +1,3 @@
+#!/bin/bash
+iwlist wlan0 scan | grep ESSID
+nmcli dev wifi list

@@ -1,0 +1,2 @@
+#!/bin/bash
+echo "/root/.dropbox-dist/dropbox-lnx.x86_64-2.10.28/dropboxd &" >> /etc/conf.d/local.start

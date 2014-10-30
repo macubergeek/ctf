@@ -1,0 +1,7 @@
+#!/bin/bash
+ifconfig $1 down
+iwconfig $1 mode monitor
+iwconfig $1
+ifconfig $1 up
+iwconfig $1 chan $2
+nohup tcpdump -i $1 -n -s 0 -w channel$2-`date +%m-%d-%s`.pcap &

@@ -1,0 +1,168 @@
+BSSID              PWR  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID
+                                                                                                                                      
+ 00:26:B8:20:09:01  -32        2        0    0  11  54e. WEP  WEP BSSIDesDCWCTF03  
+                             
+ E8:94:F6:24:73:B3  -38        0        0    0  13  11   OPN            BSSIDesDCWCTF02 
+                       
+ E8:94:F6:1F:59:E6  -40        3        0    0  11  11   WPA2 CCMP   PSK  BSSIDesDCWCTF05 
+                      
+ E8:94:F6:21:6D:4C  -43      619        0    0   1  11   WEP  WEP         BSSIDesDCWCTF06  
+                      
+ 00:11:74:42:2D:C0  -68       69        3    0  11  54e. WPA2 CCMP   PSK  BSSIDesDCWCTF01  
+                      
+ 00:1F:90:D9:5F:CC  -71       22        0    0   6  54 . WEP  WEP         BSSIDesDCWCTF04  
+
+----------------------------------------------------------
+ Challenge 1
+  Even a little crack is whack
+hamlet
+wpa2 ap capture handshake using cracklib-words
+card into monitor
+deauth
+check for handshakes in wireshark or Tshark
+use mdk3 to get handshake
+crack
+----------------------------------------------------------
+ Challenge 2
+  Whiskey Juliet Zulu
+UTC-10:00 UTC-4:00 UTC-00:00
+hints to channel 13
+doing things manual
+reg set JP
+reg get
+then manually associate to ap
+using iwconfig
+fireup wireshark
+client on network pinging non existant ip 
+manually assign ip address
+look for bssid ip address and search for ip range
+tshark -i 1 -R "eth.addr eq xx:xx:xx:xx:xx:xx”
+****using iw to manually associate with ap
+raspberry ip was the ap using hostapd and ran web server.
+----------------------------------------------------------
+ Challenge 3
+  You can do this at home
+wep 64 
+generate ivs with replay attack.
+crack with aircrack-ng
+can replicate at home
+----------------------------------------------------------
+ Challenge 4
+  Ain't nobody home here. Move along...
+wep 64 didn't have a client
+tutorial on aircrack-ng.org on clientless wep
+have to fakeauth the router then do chop chop attack the wep
+----------------------------------------------------------
+Challenge 5
+Coffee filter
+localize capture to just the essid
+mac authenticate at the router
+sniff legitimate client on the network and use their mac address
+----------------------------------------------------------
+Challenge 6
+ Patience you must have my young padawan
+like challenge 1
+client would come up every 5 minutes and connect for 20 seconds.
+have to dump it for a while.
+isolate by channel
+check for handshakes with wireshark with EAPOL display filter
+check src and destination you are targeting.
+run aircrack start to small list first
+tcpdump always works.
+wireshark is best 
+----------------------------------------------------------
+Challenge 7: Hide and Seek
+ ESSID:
+e8:94:f6:65:a1:3e
+ The Hide and Seek will be running from 1000 Saturday to
+1200 Sunday
+ The target is stationary during the contest.
+ The Hunting Grounds
+ The Washington Marriott property
+
+----------------------------------------------------------
+Challenge 8: Fox and Hound
+ ESSID: e8:94:f6:e7:d5:7b
+ 100 points awarded to first team that finds the Fox
+ Fox Rules
+ Fox can turn off the AP for up to 5 minutes per hour
+ Fox will be in play on Saturday 1000-1700, Sunday 1000-1200
+ The Hunting Grounds
+ The Washington Marriott property
+
+use WifiAnalyzer on Android
+----------------------------------------------------------
+Challenge 9
+ 900 & up: people still use these
+intermittent transmission transmitting pocsag
+use multimon-ng 
+rtl_sdr | multimon-ng
+illegal to monitor if on freq for cellular -->909mhz
+----------------------------------------------------------
+Challenge 10
+ 222 & up: From Russia With Love
+numbers station
+listen
+----------------------------------------------------------
+Challenge 11
+ 6M: This doesn't look like HD,mm,
+6meter band
+50.725
+Slow scan TV
+record as wave file
+use qsstv latest version
+reads wave file in and decode it
+----------------------------------------------------------
+Challenge 12
+ 2M: I've got your number
+144mhz
+AFSK caller ID
+8675309 was the flag repeating every five seconds
+decode with multimon
+gqrx has AFSK but buggy
+----------------------------------------------------------
+Challenge 13
+ Play me
+the chromecast
+download app for chromecast
+it broadcasts it is chromecast
+
+----------------------------------------------------------
+Words words words.
+All I do is win!
+
+submit 908 and 911 as flags
+submit Words, worBSSIDds, words. as flag
+
+00:26:B8:20:09:01  -42      972        0    0  11  54e. WEP  WEP         BSSIDesDCWCTF03            
+ E8:94:F6:24:73:B3  -45     2412  ,    112    0  13  11   OPN              BSSIDesDCWCTF02            
+ 00:1A:8C:73:69:80  -45     2367     2865    4  13  54e. WPA2 CCMP   PSK  BSidesDCPublic             
+ E8:94:F6:1F:59:E6  -46     1855        7    0  11  11   WPA2 CCMP   PSK  BSSIDesDCWCTF05            
+ 00:1A:8C:73:69:82  -46     2330        0    0  13  54e. WPA2 CCMP   PSK  BSidesDCAdmin              
+ 00:11:74:42:2D:C0  -78      990        7    0  11  54e. WPA2 CCMP   PSK  BSSIDesDCWCTF01            
+ E8:94:F6:21:6D:4C  -59        3        0    0   1  11   WEP  WEP         BSSIDesDCWCTF06            
+ 00:1F:90:D9:5F:CC  -37        7        0    0   6  54 . WEP  WEP         BSSIDesDCWCTF04      
+
+
+Sunday
+
+
+ BSSID              PWR  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID
+                                                                                                        
+ E8:94:F6:1F:59:E6  -39       62        0    0  11  11   WPA2 CCMP   PSK  BSSIDesDCWCTF05               
+ E8:94:F6:24:73:B3  -35       46        4    0  13  11   OPN              BSSIDesDCWCTF02               
+ 00:26:B8:20:09:01  -42       66        0    0  11  54e. WEP  WEP         BSSIDesDCWCTF03               
+ 00:1F:90:D9:5F:CC  -51       83        0    0   6  54 . WEP  WEP         BSSIDesDCWCTF04               
+ 00:11:74:42:2D:C0  -55       99       33    1   6  54e. WPA2 CCMP   PSK  BSSIDesDCWCTF01               
+ E8:94:F6:21:6D:4C  -50       53        2    0   1  11   WEP  WEP         BSSIDesDCWCTF06 
+
+      
+challenge 1 salamandarin
+challenge 2 birthday sex
+
+
+0xAAginger@gmail.com
+
+Jim's notes
+learn wep cracking
+Tshark display filter for EAPOL only

@@ -1,0 +1,59 @@
+BUILDING A BLOCK
+
+/usr/local/src/gnuradio/gr-utils/src/python/create-gnuradio-out-of-tree-project logitech_27mhz_transceiver
+
+cd lib
+mkdir ori
+mv logitech_27mhz_transceiver_square* ori/
+mv qa_logitech_27mhz_transceiver* ori/
+
+
+logitech_27mhz_transceiver_bin_slicer_bb.xml
+  <category>logitech_27mhz_transceiver</category>
+  <import>import logitech_27mhz_transceiver</import>
+  <make>logitech_27mhz_transceiver.bin_slicer_bb()</make>
+
+
+logitech_27mhz_transceiver_key_src_gui.xml
+
+
+CHANGES IN GRC-FOLDER
+MAKEFILES
+	logitech_27mhz_transceiver_bin_slicer_bb.xml \
+	logitech_27mhz_transceiver_key_src_b.xml \
+	logitech_27mhz_transceiver_key_src_gui.xml 
+
+
+LIB-FOLDER
+
+	logitech_27mhz_transceiver_bin_slicer_bb.h \
+	logitech_27mhz_transceiver_framer_sink.h \
+	logitech_27mhz_transceiver_key_src_b.h
+
+
+	logitech_27mhz_transceiver_bin_slicer_bb.cc \
+	logitech_27mhz_transceiver_framer_sink.cc \
+	logitech_27mhz_transceiver_key_src_b.cc
+
+MAKEFILE QA?!!
+
+logitech_27mhz_transceiver_bin_slicer_bb.lo \
+logitech_27mhz_transceiver_framer_sink.lo \
+logitech_27mhz_transceiver_key_src_b.lo \
+
+./configure PKG_CONFIG_PATH=/usr/local/lib/pkgconfig/
+
+
+SWIG
+#include "logitech_27mhz_transceiver_bin_slicer_bb.h"
+#include "logitech_27mhz_transceiver_framer_sink.h"
+#include "logitech_27mhz_transceiver_key_src_b.h"
+
+%include "logitech_27mhz_transceiver_bin_slicer_bb.i"
+%include "logitech_27mhz_transceiver_framer_sink.i"
+%include "logitech_27mhz_transceiver_key_src_b.i"
+
+
+	logitech_27mhz_transceiver_bin_slicer_bb.i \
+	logitech_27mhz_transceiver_framer_sink.i \
+	logitech_27mhz_transceiver_key_src_b.i

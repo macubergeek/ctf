@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<block>
+  <name>POCSAG decoder</name>
+  <key>pocsag_decoder</key>
+  <category>POCSAG</category>
+  <import>import pocsag</import>
+  <make>pocsag.decoder($syncword)</make>
+  <callback>set_syncword($syncword)</callback>
+  <callback>set_msgfilter($msgfilter)</callback>
+  <param>
+    <name>Sync word</name>
+    <key>syncword</key>
+    <value>0</value>
+    <type>int</type>
+  </param>
+  <param>
+	<name>Filter Level</name>
+	<key>msgfilter</key>
+	<value>1</value>
+	<type>int</type>
+  </param>
+  <sink>
+    <name>in</name>
+    <type>byte</type>
+  </sink>
+  <source>
+    <name>out</name>
+    <type>byte</type>
+  </source>
+</block>

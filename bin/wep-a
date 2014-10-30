@@ -1,0 +1,9 @@
+#!/bin/bash
+echo what is your essid?
+read essid
+echo what is your key?
+read key
+echo what is your interface?
+read int
+
+iwconfig $int essid $essid key $key

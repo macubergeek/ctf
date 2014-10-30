@@ -1,0 +1,12 @@
+alias c='clear'
+alias e='exit'
+alias d='cd /root/Desktop'
+alias mac0='ifconfig wlan0 hw ether d4:9a:20:5c:b6:6f'
+alias mac1='ifconfig wlan1 hw ether d4:9a:20:5c:b6:6f'
+alias us='iw reg set US'
+alias jp='iw reg set JP'
+alias ac='aircrack-ng'
+alias am='airmon-ng'
+alias ad='airodump-ng'
+export PATH=/ctf/bin:$PATH
+#export PATH=/ctf/bin:/root/Dropbox/bin:$PATH

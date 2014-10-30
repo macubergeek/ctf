@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Audacity
+Comment=Record and edit audio files
+Exec=audacity %F
+Icon=audacity
+Path=
+Terminal=false
+StartupNotify=false

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Dropbox
+Comment=
+Exec=/root/.dropbox-dist/dropbox-lnx.x86_64-2.10.28/dropboxd &
+Icon=system-file-manager
+Path=
+Terminal=false
+StartupNotify=false

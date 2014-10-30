@@ -1,0 +1,44 @@
+#!/bin/bash
+## useage: ./dump <interface> <channel>
+## first run airmon-ng to determine what channels the challenges are running on.
+
+##wlan1 channel 1
+echo "putting mon1 into monitor mode and dumping mon1"
+airmon-ng start wlan1 && \
+nohup /usr/bin/tshark -f "ether proto 0x888e" -i mon1 -w /ctf/p/channel-1-hs-`date +%m-%d-%s`.pcap & 
+echo "Dumping traffic on mon1
+
+##wlan2 channel 2
+echo "putting mon1 into monitor mode and dumping mon2"
+airmon-ng start wlan2 && \
+nohup /usr/bin/tshark -f "ether proto 0x888e" -i mon2 -w /ctf/p/channel-2-hs-`date +%m-%d-%s`.pcap & 
+
+##wlan1 channel 3
+echo "putting mon1 into monitor mode and dumping mon3"
+airmon-ng start wlan3 && \
+nohup /usr/bin/tshark -f "ether proto 0x888e" -i mon3 -w /ctf/p/channel-3-hs-`date +%m-%d-%s`.pcap & 
+
+##wlan1 channel 4
+echo "putting mon1 into monitor mode and dumping mon4"
+airmon-ng start wlan4 && \
+nohup /usr/bin/tshark -f "ether proto 0x888e" -i mon4 -w /ctf/p/channel-4-hs-`date +%m-%d-%s`.pcap & 
+
+##wlan1 channel 5
+echo "putting mon1 into monitor mode and dumping mon5"
+airmon-ng start wlan5 && \
+nohup /usr/bin/tshark -f "ether proto 0x888e" -i mon5 -w /ctf/p/channel-5-hs-`date +%m-%d-%s`.pcap & 
+
+##wlan1 channel 6
+echo "putting mon1 into monitor mode and dumping mon6"
+airmon-ng start wlan6 && \
+nohup /usr/bin/tshark -f "ether proto 0x888e" -i mon6 -w /ctf/p/channel-6-hs-`date +%m-%d-%s`.pcap & 
+
+##wlan1 channel 7
+echo "putting mon1 into monitor mode and dumping mon7"
+airmon-ng start wlan7 \
+nohup /usr/bin/tshark -f "ether proto 0x888e" -i mon7 -w /ctf/p/channel-7-hs-`date +%m-%d-%s`.pcap & 
+
+##wlan1 channel 8
+echo "putting mon1 into monitor mode and dumping mon8"
+airmon-ng start wlan8 && \
+nohup /usr/bin/tshark -f "ether proto 0x888e" -i mon8 -w /ctf/p/channel-8-hs-`date +%m-%d-%s`.pcap & 

@@ -1,0 +1,47 @@
+From: Jim Kelly <macubergeek@comcast.net>
+Subject: Fwd: DefCon Notes
+Date: August 11, 2014 at 11:13:29 PM EDT
+To: James Kelly <macubergeek@comcast.net>
+
+
+
+
+Begin forwarded message:
+
+From: Weyland Chiang <chzn4lifez@gmail.com>
+Date: August 10, 2014 at 4:13:43 PM EDT
+To: Jim Kelly <macubergeek@comcast.net>
+Subject: DefCon Notes
+
+Raw notes
+
+Airodump misses handshakes, use wireshark for guaranteed handshakes and/or kismet.
+Handshake: Filter out EAPOL in wireshark, make sure it is a four-way handshake.
+
+Focus on capturing everything as opposed to cracking everything.
+
+WEP only needs like 10 IVs, only one good data packet given a good word list.
+
+Use distributed methods between teams i.e. nas and awesome shits
+
+Heat map for Fox and Hound
+
+TCPDump everything, write scripts to pull stuff out of PCAPs
+
+MDK3 has über shits code.
+
+RPi- morse code, ham radio (simple stuff) SSD protocol used to transmit (?)
+Number station--red herring, some data streams take an hour to transmit completely
+FFD8 FFD9 flag was the hint that helped for that. FFD8 was actually a zip with the stuff in it
+
+GQRX, unload drivers and Pentoo sucked. DVD Transmission had all the system info stuff
+
+Transmitting Knock Knock, transmit Who's there? Response: Morpheous, Morpheous who? and then flag. HAM Radio
+.
+Hack RF and Blade RF both required for those stuff.
+
+Defcon, whatever it is bring your best. Bring your best and put it against everyone else's best and just compete.
+
+Get multiple cards for stuffs
+
+Distributed: use routers for APs and spoofing. IRC and SSH, off site cracking, on site multiple radios and multiple systems. Stay quiet on the network, be quiet and blend in. There's no blanket strategy for everything, plan for the situation and follow accordingly

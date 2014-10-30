@@ -1,0 +1,35 @@
+#!/bin/bash
+#if [ $# -eq 0 ]; then
+#echo "Usage: $0 -n [number] -m [message] -u [username] -p [password]";
+#echo "";
+#echo "[number] = SMS number to send message to";
+#echo "[message] = Text of message you want to send";
+#echo "[username] = Username assocated with aql account";
+#echo "[password] = Password assocated with aql account";
+#echo " Both the username and password options are optional and";
+#echo " override the account credentials defined in this script.";
+#echo "";
+#exit 1;
+#fi
+oui=`cat <<-EOF
+88:B1:E1
+00:0B:86
+00:1A:1E
+00:24:6C
+18:64:72
+24:DE:C6
+6C:F3:7F
+94:B4:0F
+9C:1C:12
+AC:A3:1E
+D8:C7:C8
+EOF`
+for i in $oui
+do
+tcpdump -r /ctf/p/*pcap | grep $i > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    echo WIPS found
+else
+    echo WIPS not found
+fi
+done

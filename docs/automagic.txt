@@ -1,0 +1,87 @@
+besside-ng
+
+Besside-ng is a tool like Wesside-ng but it support also WPA encryption. Wich will crack
+automatically all the WEP networks in range and log the WPA handshakes. WPA handshakes
+captured can be uploaded to the online cracking service at Darkircop.org (Besside-ng
+Companion) to attempt to get the password and where provides useful statistics based on
+user-submitted capture files about the feasibility of WPA cracking.
+
+Usage:
+
+besside-ng [options] <interface>
+
+Option	Param.	Description
+-b	target mac	Specifies the target's BSSID
+-s	WPA server	Where to upload capture file for cracking
+-c	chan	Channel lock
+-p	pps	Packages per second to send (flood rate)
+-W	Crack only WPA networks
+-v	Verbos mode, -vv for even more and so on
+-h	Help screen
+
+Easside-ng
+
+Easside-ng is an auto-magic tool which allows you to communicate via an WEP-encrypted access
+point (AP) without knowing the WEP key. It first identifies a network, then proceeds to
+associate with it, obtain PRGA (pseudo random generation algorithm) xor data, determine the
+network IP scheme and then setup a TAP interface so that you can communicate with the AP
+without requiring the WEP key. All this is done without your intervention.
+
+Usage
+
+Usage: easside-ng <args>
+
+Where:
+
+-h Displays the list of options.
+-v MAC address of the Access Point (Optional)
+-m Source MAC address to be used (Optional)
+-i Source IP address to be used on the wireless LAN. Defaults to the decoded network plus
+”.123” (Optional)
+-r IP address of the AP router. This could be the WAN IP of the AP or an actual router IP
+depending on the topology. Defaults to the decoded network plus ”.1”. (Optional)
+-s IP address of the “buddy” server (Mandatory)
+-f Wireless interface name. (Mandatory)
+-c Locks the card to the specified channel (Optional)
+
+Wesside-ng
+
+Wesside-ng is an auto-magic tool which incorporates a number of techniques to seamlessly
+obtain a WEP key in minutes. It first identifies a network, then proceeds to associate with
+it, obtain PRGA (pseudo random generation algorithm) xor data, determine the network IP
+scheme, reinject ARP requests and finally determine the WEP key. All this is done without
+your intervention.
+
+Usage
+
+Usage: wesside-ng <opts> -i <wireless interface name>
+
+-h Displays the list of options.
+-i Wireless interface name. (Mandatory)
+-n Network IP as in “who has destination IP (netip) tell source IP (myip)”. Defaults to the
+source IP on the ARP request which is captured and decrypted. (Optional)
+-m MY IP “who has destination IP (netip) tell source IP (myip)”. Defaults to the network.123
+on the ARP request captured(Optional)
+-a Source MAC address (Optional)
+-c Do not start aircrack-ng. Simply capture the packets until control-C is hit to stop the
+program! (Optional)
+-f Allows the highest channel for scanning to be defined. Defaults to channel 11. (Optional)
+-k Ignores ACKs since some cards/drivers do not report them. It will therefore automatically
+retransmit X times. That is, -k 1 will transmit once and assume the packet gets there. -k 2
+will retransmit twice, and so on. Note: The higher the -k value, the slower transmission
+rate will be due to the many retransmits. (Optional)
+-p Determines the minimum number of bytes of PRGA which are gathered. Defaults to 128 bytes.
+(Optional)
+-t For each number of IVs specified, restart the airecrack-ng PTW engine. (Optional)
+-v Wireless access point MAC address (Optional)
+When you run wesside-ng, it creates three files automatically in the current directory:
+
+wep.cap - The packet capture file. It contains the full packet, not just the IVs.
+prga.log - Contains the PRGA obtained through the fragmentation attack. The following is NOT
+correct. It is a future feature: “This can be used as input to other aircrack-ng suite tools
+which require PRGA as input. You can also use the PRGA from other tools for this file.”
+key.log - Contains the WEP key when it is found.
+
+wesside-ng -i wlan0
+
+

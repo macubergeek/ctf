@@ -1,0 +1,5 @@
+#!/bin/bash
+#nc -4 -v --udp --listen localhost 65530 | sox -b 16 -c 1 -e signed-integer -r 48000 -t raw - -r 22050 -t raw  - | multimon-ng -t raw -a POCSAG512 -a POCSAG1200 -a POCSAG2400 -f alpha  -- -
+echo "What is the frequency Kenneth? ie 150.123e6"
+read freq
+rtl_fm -f $freq -g 100 -s 22050 -l 310 – |multimon -t raw -a POCSAG1200 -f alpha /dev/stdin

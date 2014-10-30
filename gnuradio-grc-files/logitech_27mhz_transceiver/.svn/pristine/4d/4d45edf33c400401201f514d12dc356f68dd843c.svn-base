@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<block>
+  <name>Logitech 27 MHz Packet Encoder</name>
+  <key>logitech_27mhz_transceiver_packet_encoder</key>
+  <category>logitech_27mhz_transceiver</category>
+  <import>from logitech_27mhz_transceiver import logitech_27mhz_transceiver_packet as logitech_pkt</import>
+  <make>logitech_pkt.packet_mod_$(type.fcn)(logitech_pkt.packet_encoder(
+		samples_per_symbol=1,
+		bits_per_symbol=1,
+		pad_for_usrp=False,
+		kbid=$kbid,
+		verbose=$verbose,
+	),
+	payload_length=1,
+)</make>
+	<param>
+		<name>Input Type</name>
+		<key>type</key>
+		<value>float</value>
+		<type>enum</type>
+		<option>
+			<name>Byte</name>
+			<key>byte</key>
+			<opt>fcn:b</opt>
+		</option>
+	</param>
+	<param>
+		<name>Keyboard ID (HEX)</name>
+		<key>kbid</key>
+		<value>db4</value>
+		<type>string</type>
+	</param>
+	<param>
+		<name>Verbose mode</name>
+		<key>verbose</key>
+		<value>0</value>
+		<type>enum</type>
+		<option>
+			<name>On</name>
+			<key>1</key>
+		</option>
+		<option>
+			<name>Off</name>
+			<key>0</key>
+		</option>
+	</param>
+	<sink>
+		<name>in</name>
+		<type>$type</type>
+	</sink>
+	<source>
+		<name>out</name>
+		<type>byte</type>
+	</source>
+
+
+</block>
+

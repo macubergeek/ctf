@@ -1,0 +1,95 @@
+#
+# Copyright 2005,2006,2009 Free Software Foundation, Inc.
+# 
+# This file is part of GNU Radio
+# 
+# GNU Radio is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3, or (at your option)
+# any later version.
+# 
+# GNU Radio is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with GNU Radio; see the file COPYING.  If not, write to
+# the Free Software Foundation, Inc., 51 Franklin Street,
+# Boston, MA 02110-1301, USA.
+# 
+
+This directory (and the resulting tarball) contains a build tree with
+examples, Makefiles, etc that demonstrate how to write signal
+processing blocks for the GNU Radio system.  This directory is
+intentionally distributed separately from the unified tarball of the
+rest of GNU Radio in order to avoid problems for people who have begun
+to write blocks with a modified copy of gr-logitech_27mhz_transceiver-write-a-block.
+
+This project requires a functional GNU Radio installation including GRC 
+and USRP support.
+
+== How To Install ==
+
+To build the examples from the tarball use the normal recipe:
+
+  $ ./configure
+  $ make
+  $ sudo make install
+
+If you're building from git, you'll need to use this sequence, since
+git doesn't contain configure or the generated Makefiles.
+
+  $ ./bootstrap
+  $ ./configure
+  $ make
+  $ sudo make install
+
+
+
+== How To Run ==
+
+According to the installed GNU Radio version, the GRC projects need to be 
+started by running
+
+grc grc/receiver_27mhz.grc grc/sender_27mhz.grc
+
+on GNU Radio 3.2.2 or 
+
+gnuradio-companion grc/receiver_27mhz.grc grc/sender_27mhz.grc
+
+on GNU Radio 3.3.0 both times run from project root.
+
+ 
+When running the receiver, the VERBOSE mode can be enabled/disabled in the 
+block "Logitech 27MHz Packet Decoder" which outputs all information gathered 
+from the received signal and outputs it to the console like
+
+_______________
+DATA FRAME
+KEYBOARD ID: 0x74a
+KEY PRESSED: 0111001
+KEY WAS PRESSED
+FOUND KEY PRESSED: c 
+_______________
+
+or 
+
+_______________
+SECURED CONNECTION
+KEYBOARD ID: 0xff1
+1 0 1 1 1 1 1 1 0 0 0 1 0 1 1 0 
+_______________
+
+
+Independent from the console output, the received keystrokes are written to 
+the file /tmp/rec_27mhz_keys.txt.
+
+This file can be readout cyclic for example with the command 
+
+tail -f -s 0.1 /tmp/rec_27mhz_keys.txt
+
+in a Linux shell.
+
+
+

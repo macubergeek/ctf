@@ -1,0 +1,21 @@
+#!/bin/bash
+# This syncs the gentoo and pentoo repos like "apt-get update" in debian
+emerge --sync
+# This updates all the normal packages like "apt-get upgrade" in debian
+emerge --deep --update --newuse world
+# This optionally merges in changed config files. unchanged files are merged automatically
+etc-update
+# This removes old packages which are not needed like "apt-get autoremove" in debian
+emerge --depclean
+# This rebuilds anything which may have been broken in update
+emerge @preserved-rebuild
+# This checks all the programs installed from VCS for new revisions and updates if needed
+smart-live-rebuild
+# Verifies there is no breakage after updates
+revdep-rebuild
+#merge in any new config files
+etc-update
+#clean up the distfiles/packages dirs to remove old/un-needed files
+eclean-dist -d && eclean-pkg -d
+perl-cleaner --modules
+python-updater
