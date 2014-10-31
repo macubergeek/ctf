@@ -24,3 +24,21 @@ rtl_fm -N -o 4 -A lut -s 22050 -C -f 153.350M - | multimon-ng -t raw -a POCSAG51
 If everything is working, you should see output like this:
 POCSAG2400-: Alpha: 23:09-92 24/05/2013 14:33:05 AR02EH_2 High Alarm 70 AR02 AHU-20 Ext Air Humidity out of Limits Alarm Item Description Ext Air RH Details Status : Ext Air RH<NUL>
 
+
+I think this is because of the centre spike in the E4000.  It is 
+designed to tune to a slightly different frequency and then decode the 
+broadcast off-centre, so any centre spike doesn't interfere with the signal. 
+
+If you want to hear the audio while decoding, you can use multiple pipes 
+(only tested in Bash) similar to this: 
+
+$ rtl_fm -l 0 -f 148637000 -s 22050 - | tee >(./multimonNG -a POCSAG512 
+-a POCSAG1200 -f alpha -t raw /dev/stdin) >(play -t raw -r 22050 -e 
+signed-integer -b 16 -c1 -V1 -q -) > /dev/null 
+
+There is a slight delay for me, but I still hear the audio as the 
+message is being printed on the screen. 
+
+Note that I have added the -l option in the command above which reduces 
+the squelch level.  This is needed to receive signals considered too 
+weak by the default value (-l 150). 
