@@ -1,0 +1,6 @@
+#!/bin/bash
+cd /root/Desktop
+echo "use wlan2 or 3 for injection or deauth"
+airmon-zc start wlan1
+airmon-zc start wlan2
+airmon-zc start wlan3
