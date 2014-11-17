@@ -1,0 +1,2 @@
+#!/bin/bash
+/usr/bin/tshark -f "ether proto 0x888e" -r /root/Desktop/CTF/*
