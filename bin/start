@@ -1,9 +1,7 @@
 #!/bin/bash
 cd /root/Desktop
 echo "Here are mac addresses."
-ifconfig wlan1
-ifconfig wlan2
-ifconfig wlan3
+cat /ctf/interfaces
 echo "Use wlan2 or 3 for injection or deauth"
 airmon-zc start wlan1
 airmon-zc start wlan2
