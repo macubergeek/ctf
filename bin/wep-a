@@ -6,4 +6,4 @@ read key
 echo what is your interface?
 read int
 
-iwconfig $int essid $essid key $key
+iwconfig $int connect $essid key $key
