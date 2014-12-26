@@ -1,0 +1,68 @@
+     
+
+     Decoding Pocsag Pagers With The HackRF
+     1 post • Page 1 of 1
+     Decoding Pocsag Pagers With The HackRF
+
+     Postby admin » Fri Aug 16, 2013 10:34 am
+     Remember evesdropping on pagers may be illegal in your country do so at your own risk.
+
+     This is another quick tutorial on things you can do with the HackRF. I was lucky enough
+     to get one as part of the beta, it is a great piece of hardware and it is my hope that
+     with these tutorials I can do my part in getting more people interested and we can get
+     massive community built around the HackRF. Today I am going to be talking about
+     decoding pocsag pager messages, for this I will assume you are using the great ubuntu
+     live cd for the hackrf.
+
+     First thing to do is get gqrx going and tune around the 137 - 160 ish mhz range - You
+     will be looking for a signal like this:
+
+     gqrx.png
+
+     You can atually see three pocsag channels in this image.
+
+     Ok now you have found the stream we need a way to decode it, it took me a bit of
+     fiddling to get this to work so hopefully this will save you some time.
+     First thing we need to do is install some tools so in a terminal run:
+
+     sudo apt-get install pavucontrol
+
+     Next we need to download a program called Multimon-NG from here, Log in or register to
+     see all links ,click on download zip on the right hand side. Once this is downloaded
+     unzip its contents to any directory.
+
+     Cd in to the directory where you extracted Multimon-NG and enter the following:
+
+     mkdir build
+     cd build
+     qmake ../multimon-ng.pro
+     make
+     sudo make install
+
+     Now start Multimon-NG with this command:
+
+     padsp multimon-ng -a POCSG512 -f alpha
+
+     You will need to adjust -a depending on what your are decoding, anyway at this point
+     you should have something that look like below:
+
+     pocsag.png
+
+
+     Now that this is running we need to pipe the audio from gqrx to multimon and this is
+     were we use little pulse audio magic, In a new command line enter this command:
+
+     pavucontrol
+
+     You should now be looking at a window like the one below. What you need to do now is
+     click on the recording tab and you should see listed "Multimon-NG recording from" in
+     the box next to this make sure "Monitor of audio adapter" is selected. *Note you only
+     need to do this once it will remember in the future.
+
+     pavucontol.png
+
+
+     Thats it when the next page comes through it should be decoded like you can see on the
+     screen below, If you wondering why alot of this is blurred out its because these
+     message often conatain a lot of personal information such as names, phone numbers and
+     address's. Anyway thats all for today stay safe and have fun.
