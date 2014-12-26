@@ -42,3 +42,12 @@ message is being printed on the screen.
 Note that I have added the -l option in the command above which reduces 
 the squelch level.  This is needed to receive signals considered too 
 weak by the default value (-l 150). 
+
+———————————
+If anyone is interested, here is the command I used to decode the POCSAG
+transmission on 148.629MHz and display the output:
+
+   rtl_fm -f 148639000 -s 22050 - | ./multimonNG -a POCSAG512 -a POCSAG1200 -f
+alpha -t raw /dev/stdin 
+
+
