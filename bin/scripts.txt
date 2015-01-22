@@ -1,0 +1,18 @@
+#!/bin/bash
+## mon 1 6
+## monitor mode and dump wlan1 on channel 6
+ifconfig wlan$1
+/etc/init.d/Netowrk-Manager stop
+ifocnfig wlan$1 down
+ifconfig wlan$1 mode monitor
+ifconfig wlan$1 up
+ifconfig wlan$1 channel $2
+nohup tcpdump -i wlan$1 -s 0 -w /root/Desktop/channel$2.cap &
+
+
+
+#!/bin/bash
+## connect to open network
+## connect 1 connect BSidesDC15
+iw wlan$1 connect $2
+dhclient wlan$1
