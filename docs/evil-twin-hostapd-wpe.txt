@@ -1,0 +1,59 @@
+running
+
+cd /opt/hostapd-2.2/hostapd
+./hostapd-wpe hostapd-wpe.conf
+
+    With all of that complete, you can run hostapd. The patch will
+    create a new hostapd-wpe.conf, which you'll likely need to modify
+    in order to make it work for your attack. Once ready just run
+
+    hostapd hostapd-wpe.conf
+
+    Look in the output for the username/challenge/response. It'll be there
+    and in a hostapd-wpe.log file in the directory you ran hostapd from
+
+    for instance here are the EAP-FAST Phase 0 creds from stdout:
+
+    username: jdslfkjs
+    challenge: bc:87:6c:48:37:d3:92:6e
+    response: 2d:00:61:59:56:06:02:dd:35:4a:0f:99:c8:6b:e1:fb:a3:04:ca:82:40:92:7c:f0
+
+    and as always, we feed them into asleap to crack:
+
+    # asleap -C bc:87:6c:48:37:d3:92:6e -R 2d:00:61:59:56:06:02:dd:35:4a:0f:99:c8:6b:e1:fb:a3:04:ca:82:40:92:7c:f0 -W wordlist 
+    asleap 2.2 - actively recover LEAP/PPTP passwords. <jwright@hasborg.com>
+    hash bytes:        b1ca
+    NT hash:           e614b958df9df49ec094b8730f0bb1ca
+    password:          bradtest
+
+    Alternatively MSCHAPv2 credentials are outputted in john the rippers NETNTLM format. 
+
+
+EAP-Success
+--------------
+    Certain EAP types do not require the server to authenticate itself, just to validate
+    the client's submitted credentials. Since we're playing the authentication server, 
+    that means we can easily just return an EAP-Success message to the client regardless
+    of what they send us. The client is happy because they've connected, but unfortunately
+    are unaware that they are connected to an unapproved authenticator. 
+
+    At this point, the attacker can set up a dhcp server and give the client an IP and
+    then do whatever they'd like (e.g. redirect dns, launch attacks, MiTM, etc..)
+
+    MSCHAPv2 protects against this by having the server prove knowledge of the password
+    most supplicants adhere to this policy, but we return EAP-Success just in case. 
+
+Karma-Style Probes
+------------------
+    This functionality simply waits for an client to send a directed probe, when it does, it 
+    assumes that SSID and responds to the client. Only applicable to 802.11 clients. 
+
+A note on MSCHAPv2
+-------------------
+    Microsoft offers something called "Computer Based Authentication". When a computer
+    joins a domain it is assigned a password. This password is stored on the system
+    and in active directory. We can harvest the MSCHAPv2 response from these systems but
+    its going to take a lifetime to crack. Unless you're just trying to solve for the 
+    hash, and not the actual password :)
+
+    One other thing to note, if the client returns all zeros, it isnt joined to a domain. 
