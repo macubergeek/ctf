@@ -1,0 +1,5 @@
+#!/bin/bash
+echo ******** >> /root/Desktop/strings.txt
+cat *pcap | strings | grep -i key >> /root/Desktop/strings.txt
+cat *pcap | strings | grep -i flag >> /root/Desktop/strings.txt
+echo ******** >> /root/Desktop/strings.txt
