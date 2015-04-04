@@ -1,0 +1,12 @@
+#!/bin/bash
+echo "What is ESSID?"
+read myessid
+echo "What is key or password?"
+read pass
+echo "What is interface, wlan0?"
+read int
+iwconfig $int essid $myessid key $pass
+ifconfig $int up
+dhclient $int
+ifconfig $int
+echo "nmap -sS -p 80 MY-SUBNET"

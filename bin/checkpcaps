@@ -1,0 +1,3 @@
+#!/bin/bash
+terminal -e while :;do ls -la /ctf/p/*.pcap&sleep 2;done
+terminal -e while :;do ls -la /ctf/h/*.pcap&sleep 2;done

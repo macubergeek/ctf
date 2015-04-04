@@ -1,0 +1,6 @@
+#!/bin/bash
+## put bssid's in file name bssids
+echo "What is the ESSID?"
+read essid
+terminal -e aircrack-ng  -w /root/Desktop/cracklib-words -b $essid /ctf/p/*.caps
+terminal -e aircrack-ng  -w /root/Desktop/cracklib-words -b $essid /ctf/h/*.caps 

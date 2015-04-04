@@ -1,0 +1,6 @@
+#!/bin/bash
+touch blacklist
+for int in wlan1 wlan2 wlan3 wlan4 wlan5 wlan6 wlan7 wlan8
+do
+mdk3 $int d -b blacklist -c X
+done

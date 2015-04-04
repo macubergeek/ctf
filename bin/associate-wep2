@@ -1,0 +1,13 @@
+#!/bin/bash
+echo "Which Interface?"
+read int
+ifconfig $int up
+iwlist $int scan
+echo "Which ESSID?"
+read myessid
+iwconfig $int essid "$myessid"
+echo "What is the key?"
+read mykey
+iwconfig $int key $mykey
+iwconfig $int enc on
+ifconfig $int

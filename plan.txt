@@ -1,0 +1,10 @@
+1. Register team, download and load their gpg key etc.
+
+1. Do recon to find ESSIDs and their channels
+
+2. create sniffs and launch them
+
+3. set up cron jobs
+*/120 * * * * /path/to/command
+
+4. 

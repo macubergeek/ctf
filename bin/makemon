@@ -1,0 +1,17 @@
+#!/bin/bash
+echo "What is ESSID"
+read essid
+echo "Which interface?"
+read int
+echo "What is channel?"
+read chan
+echo "ifconfig wlan$int down" >> /ctf/bin/mon
+echo "iwconfig wlan$int mode monitor" >> /ctf/bin/mon
+echo "iwconfig wlan$int" >> /ctf/bin/mon
+echo "ifconfig wlan$int up" >> /ctf/bin/mon
+echo "iwconfig wlan$int chan $chan" >> /ctf/bin/mon
+echo "nohup tcpdump -i wlan$int -n -s 0 -w /ctr/p/$essid-$chan-full-`date +%m-%d-%s`.pcap &" >> /ctf/bin/mon
+echo "nohup /usr/bin/tshark -f "ether proto 0x888e" -i $int -w /ctf/h/$essid-$chan-handshakes-`date +%m-%d-%s`.pcap &" >> /ctf/bin/mon
+chmod +x /ctf/bin/mon
+cat /ctf/bin/mon
+echo "Now run ./mon"

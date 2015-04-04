@@ -1,0 +1,10 @@
+#!/bin/bash
+## cronjob strip handshakes
+## run this crontab */60 * * * * /ctf/bin/hs
+
+##tshark -r <input file name> -R "eapol || wlan.fc.type_subtype == 0x08" -w <output file name>
+
+for i in `ls /ctf/p`
+do
+tshark -r $i -R "eapol || wlan.fc.type_subtype == 0x08" -w /ctf/h/$i.handshakes
+done

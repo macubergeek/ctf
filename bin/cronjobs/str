@@ -1,0 +1,6 @@
+#!/bin/bash
+## execute this on cronjob
+echo ******** >> /root/Desktop/strings.txt
+cat /ctr/p/*pcap | strings | grep -i key >> /root/Desktop/strings.txt
+cat /ctr/p/*pcap | strings | grep -i flag >> /root/Desktop/strings.txt
+echo ******** >> /root/Desktop/strings.txt

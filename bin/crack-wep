@@ -1,0 +1,5 @@
+#!/bin/bash
+## put bssid's in file name bssids
+echo "What is the ESSID?"
+read essid
+terminal -a 1 -w /root/Desktop/cracklib-words -b $essid /ctf/p/*.caps

@@ -1,0 +1,6 @@
+#!/bin/bash
+## cronjob crack of handshakes
+## Feed the ESSID on command line
+terminal -e /usr/bin/aircrack-ng -w /usr/share/dict/cracklib-words /ctr/p/*pcap
+
+john --wordlist=/usr/share/dict/cracklib-words --rules --stdout | cowpatty -s $1 -f /usr/share/dict/cracklib  -r  /ctf/p/*.pcap
