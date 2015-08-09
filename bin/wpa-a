@@ -4,5 +4,5 @@ read essid
 echo what is password or key?
 read key
 
-wpa_passphrase $essid $key > /etc/wpa_supplicant.conf
-cat /etc/wpa_supplicant.conf
+wpa_passphrase $essid $key > /etc/wpa_supplicant/wpa_supplicant.conf
+cat /etc/wpa_supplicant/wpa_supplicant.conf
